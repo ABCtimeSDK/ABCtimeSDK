@@ -15,18 +15,17 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "ABCtimeSDKDemo"
+  s.name         = "ABCtimeSDK"
   s.version      = "1.0.0"
-  s.summary      = "A short description of ABCtimeSDKDemo."
+  s.summary      = "ABCtimeSDK"
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = <<-DESC
-                   DESC
+  s.description  = "library for iOS (static lib), Supports iPhone Simulator and device"
 
-  s.homepage     = "http://EXAMPLE/ABCtimeSDKDemo"
+  s.homepage     = "https://ailab.100tal.com/"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -37,7 +36,12 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
+  s.license      = {
+    :type => 'Copyright',
+    :text => <<-LICENCE
+    Copyright 2018 TAL AILab. All rights reserved.
+    LICENCE
+  }
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -51,7 +55,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "Allen.li" => "lixunke@100tal.com" }
+  s.author             = { "Allen.li" => "595004044@qq.com" }
   # Or just: s.author    = "Allen.li"
   # s.authors            = { "Allen.li" => "lixunke@100tal.com" }
   # s.social_media_url   = "http://twitter.com/Allen.li"
@@ -63,7 +67,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "8.0"
+  s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -78,8 +82,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://EXAMPLE/ABCtimeSDKDemo.git", :tag => "#{s.version}" }
-
+  s.source       = { :git => "http://github.com/ABCtimeSDK/ABCtimeSDK.git", :tag => s.version }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -89,8 +92,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  #s.source_files  = "Classes", "Classes/**/*.{h,m}"
+  #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -115,13 +118,14 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
+   s.framework  = "ABCtimeSDK"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
-
-
+  s.vendored_libraries  = 'frameworks/ABCtimeSDK.framework/ABCtimeSDK'
+  s.vendored_frameworks = 'frameworks/ABCtimeSDK.framework'
+  s.resource = "resource/bundle/ABCtimeSDK.Bundle"
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  If your library depends on compiler flags you can set them in the xcconfig hash
